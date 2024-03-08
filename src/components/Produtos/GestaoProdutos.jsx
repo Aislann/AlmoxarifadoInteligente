@@ -1,47 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-// import './main.css'
-import Requisicao from "./src/components/Requisicao/Requisicao";
 
 const GestaoProdutos = () => {
-    const sections = [
-        { name: 'Requisicao', component: <Requisicao /> },
-        // { name: 'JANTAR', component: <Jantar /> },
-        // { name: 'BEBIDAS', component: <Bebidas /> },
-        // { name: 'SOBREMESAS', component: <Sobremesas /> },
-      ];
-    
-      const [selectedSection, setSelectedSection] = useState(0);
-    
-      const handleSectionClick = (index) => {
-        setSelectedSection(index === selectedSection ? null : index);
-      };
-    
-      useEffect(() => {
-        setSelectedSection(0);
-      }, []);
+    const [menuAberto, setMenuAberto] = useState(false);
+  
+    const toggleMenu = () => {
+      setMenuAberto(!menuAberto);
+    };
 
   return (
     <div>
+    <div className='selection'>
+      <nav className={`navbar ${menuAberto ? 'menu-aberto' : ''}`}>
+        <div className='menu-sanduiche' onClick={toggleMenu}>
+          <div className='barra-menu'></div>
+          <div className='barra-menu'></div>
+          <div className='barra-menu'></div>
+        </div>
+        <div className='links'>
+          <Link to={"/GestaoProdutos"}>
+            <span>Produtos</span>
+          </Link>
+          <Link to={"/Requisicao"}>
+            <span>Requisição</span>
+          </Link>
+        </div>
+      </nav>
+    </div>
       <div className="main">
-      <div className='sticky-header'>
-        {sections.map((section, index) => (
-          <h2
-            key={index}
-            className={selectedSection === index ? 'active' : ''} 
-            onClick={() => handleSectionClick(index)}
-          >
-            {section.name}
-          </h2>
-        ))}
-      </div>
         <div className="header">
           <span>Gestão de Produtos</span>
         </div>
         <div className='conteudo'>
-        <Link to={"/Requisicao"}>
-            Requisicao
-        </Link>
         </div>
       </div>
     </div>
