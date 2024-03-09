@@ -24,6 +24,13 @@ const GestaoProdutos = () => {
           <Link to={"/Requisicao"}>
             <span>Requisição</span>
           </Link>
+          <Link to={"/Logs"}>
+            <span>BenchMarking Logs</span>
+          </Link>
+          <Link to={"/Configuracoes"}>
+            <span>Configurações</span>
+          </Link>
+          
         </div>
       </nav>
     </div>
