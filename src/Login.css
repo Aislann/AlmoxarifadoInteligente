@@ -35,16 +35,13 @@
     cursor: text;   
 }
 
-.conteudoLogin button{
-    background-color:#0095C5;
-    border: none;
+.conteudoLogin #BtnInserirItens{
+    margin: auto;
     margin-top: 1rem;
-    padding: 0.8rem;
-    border-radius: 5px;
-    color: white;
+    
 }
 
-.conteudoLogin button:hover{
-    cursor: pointer;
-    background-color: #0085b1;
+.link{
+    text-decoration: none;
 }
+

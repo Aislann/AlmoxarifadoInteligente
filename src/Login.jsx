@@ -15,9 +15,8 @@ const Login = () => {
           <input type="text" id="email" name="email" placeholder='Endereço de e-mail'/>
           <label htmlFor="password">Senha:</label>
           <input type='password' id="password" name="senha" placeholder='Senha' />
-          <button>Entrar</button>
-        <Link to={"/GestaoProdutos"}>
-        Gestão de Produtos
+        <Link className='link' to={"/GestaoProdutos"}>
+        <button id='BtnInserirItens'>Entrar</button>
         </Link>
         </div>
       </div>

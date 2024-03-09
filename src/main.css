@@ -58,7 +58,7 @@ background-color: #ffffff;
 
 .links {
   display: flex;
-  gap: 20px;
+  gap: 20px; 
 }
 
 /* Mostra o menu-sanduiche em telas menores
