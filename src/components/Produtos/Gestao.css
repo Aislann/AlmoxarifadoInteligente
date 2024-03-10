@@ -1,0 +1,79 @@
+.BenchMarking{
+    background-color: #0095C5;
+    width: 50%;
+    height: 50%;
+}
+.BenchMarkingFail{
+    background-color: red;
+    width: 50%;
+    height: 50%;
+}
+.enviarEmail{
+    background-color: yellow;
+    width: 50%;
+    height: 50%;
+}
+.PlayBench{
+    background-color: green;
+    width: 50%;
+    height: 50%;
+}
+
+.editar{
+    background-color: orange;
+    width: 50%;
+    height: 50%;  
+}
+.deletar{
+    background-color: red;
+    width: 50%;
+    height: 50%;
+}
+
+.gestaoProdutos{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.gestaoProdutos .tabelaItens{
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.gestaoProdutos .tabelaItens th{
+    text-align: center;
+    padding: 0.5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+.gestaoProdutos .tabelaItens td{
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.gestaoProdutos #BtnInserirItens{
+    background-color: green;
+    width: 80px;
+    height: 35px;
+}
+
+.gestaoProdutos .icones{
+    display: flex;
+    width: 150px;
+    border: none;
+    gap: 0.5rem;
+    cursor: pointer;
+} 
+
+@media only screen and (max-width: 768px) {
+    .gestaoProdutos .icones{
+        width: 30px;
+        margin-right: -5px;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    } 
+    .gestaoProdutos .tabelaItens td{
+        text-align: center;
+        padding: 0.5rem;
+        padding-bottom: 2rem;
+    }
+}
