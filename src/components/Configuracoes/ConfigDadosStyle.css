@@ -1,0 +1,43 @@
+.conteudoConfig{
+    flex-direction: column;
+    background-color: white;
+    height: 100%;
+    max-width: 30rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding-bottom: 1vh;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    font-size: 25px; 
+}
+
+.campoEmail{
+    width:95%;
+}
+
+.campoZap{
+    width: 95%;
+}
+
+.conteudoConfig button{
+    color: #0095C5;
+    background-color: white;
+    display: flex;
+    padding: 1rem;
+    border-radius: 5px;  
+    border: 1px solid #adadad;
+    outline-color: #00c569;
+    width: 100%;
+    margin-top: 1rem;
+
+}
+
+.link-sair{
+    text-decoration: none;
+    margin-top: 1.5rem;
+}
