@@ -5,6 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FiDelete } from "react-icons/fi";
 import { CiPlay1 } from "react-icons/ci";
+import './Gestao.css';
 
 const GestaoProdutos = () => {
     const [menuAberto, setMenuAberto] = useState(false);
@@ -45,7 +46,9 @@ const GestaoProdutos = () => {
         </div>
         <div className='conteudo'>
         <div className="gestaoProdutos">
+        <Link to ={"/CadastroProdutos"}>
         <button id='BtnInserirItens'>NOVO</button> 
+        </Link>
         <table class="tabelaItens" id="tabelaItens">
             <tr>
                 <th>Código</th>
