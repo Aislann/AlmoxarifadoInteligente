@@ -3,6 +3,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Login from "./src/Login";
 import Requisicao from "./src/components/Requisicao/Requisicao";
 import GestaoProdutos from "./src/components/Produtos/GestaoProdutos";
+import Logs from "./src/components/BenchMarking/Logs";
+import ConfigDados from "./src/components/Configuracoes/ConfigDados";
 
 export default function routes() {
     return(
@@ -11,6 +13,8 @@ export default function routes() {
                 <Route exact path = '/' Component={Login} />
                 <Route exect path = '/Requisicao' Component={Requisicao}/>
                 <Route exect path = '/GestaoProdutos' Component={GestaoProdutos}/>
+                <Route exect path = '/Logs' Component={Logs}/>
+                <Route exect path = '/Configuracoes' Component={ConfigDados}/>
             </Routes>
         </BrowserRouter>
     )
