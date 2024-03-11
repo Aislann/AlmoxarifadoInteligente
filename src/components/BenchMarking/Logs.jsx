@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import NavbarLinks from '../Navbar/NavbarLinks';
 
 const Logs = () => {
-  const [menuAberto, setMenuAberto] = useState(false);
   const [logs, setLogs] = useState([]);
-
-  const toggleMenu = () => {
-    setMenuAberto(!menuAberto);
-  };
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,23 +19,7 @@ const Logs = () => {
 
   return (
     <div>
-      <div className='selection'>
-        <nav className={`navbar ${menuAberto ? 'menu-aberto' : ''}`}>
-          <div className='menu-sanduiche' onClick={toggleMenu}>
-            <div className='barra-menu'></div>
-            <div className='barra-menu'></div>
-            <div className='barra-menu'></div>
-          </div>
-          <div className='links'>
-            <Link to={"/GestaoProdutos"}>
-              <span>Produtos</span>
-            </Link>
-            <Link to={"/Requisicao"}>
-              <span>Requisição</span>
-            </Link>
-          </div>
-        </nav>
-      </div>
+      <NavbarLinks/>
       <div className="main">
         <div className="header">
           <span>BenchMarking Logs</span>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './css/Requisicao.css'; 
 import './css/InputRequisicao.css'; 
 import './css/Responsividade.css'; 
+import NavbarLinks from '../Navbar/NavbarLinks';
 // import './js/dados'
 // import './js/main'
 
@@ -38,6 +39,7 @@ const Requisicao = () => {
 
   return (
     <div>
+      <NavbarLinks/>
       <div className="main">
         <div className="header">
           <span> Pedido de Requisição de Saída</span>

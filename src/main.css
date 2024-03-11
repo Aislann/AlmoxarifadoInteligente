@@ -33,34 +33,6 @@ width: 100%;
 background-color: #ffffff;
 }
 
-.selection span{
-  padding: auto;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-}
-
-.menu-sanduiche {
-  cursor: pointer;
-  display: none; /* Inicialmente oculto em telas maiores */
-}
-
-.barra-menu {
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  margin: 5px 0;
-}
-
-.links {
-  display: flex;
-  gap: 20px; 
-}
-
 /* Mostra o menu-sanduiche em telas menores
 @media screen and (max-width: 768px) {
   .menu-sanduiche {
