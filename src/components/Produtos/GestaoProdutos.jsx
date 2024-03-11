@@ -22,12 +22,12 @@ const GestaoProdutos = () => {
         <div className='conteudo'>
         <div className="gestaoProdutos">
         <Link to={"/CadastroProdutos"} className='link'>
-        <button id='BtnInserirItens'>NOVO PRODUTO</button> 
+        <button id='BtnInserirItens'>NOVO</button> 
         </Link>
         <table class="tabelaItens" id="tabelaItens">
             <tr>
                 <th>Código</th>
-                <th>Produto</th>
+                <th>Descrição</th>
                 <th>Preço</th>
                 <th>Estoque Atual</th>
                 <th>Estoque Mínimo</th>

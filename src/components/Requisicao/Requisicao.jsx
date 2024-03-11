@@ -3,6 +3,8 @@ import './css/Requisicao.css';
 import './css/InputRequisicao.css'; 
 import './css/Responsividade.css'; 
 import NavbarLinks from '../Navbar/NavbarLinks';
+import Add from '/public/img/add.svg'
+import Branco from '/public/img/branco.svg'
 // import './js/dados'
 // import './js/main'
 
@@ -10,31 +12,23 @@ import NavbarLinks from '../Navbar/NavbarLinks';
 const Requisicao = () => {
   const [numeroRequisicao, setNumeroRequisicao] = useState('');
   const [idDepartamento, setIdDepartamento] = useState('');
-  // Adicione mais estados conforme necessário
 
   useEffect(() => {
-    // Lógica de inicialização aqui, se necessário
-    // Exemplo: carregarDadosIniciais();
   }, []);
 
   const habilitarMotivo = () => {
-    // Implemente a lógica de habilitar o motivo aqui
   };
 
   const verificarEstoque = () => {
-    // Implemente a lógica de verificar o estoque aqui
   };
 
   const verificarEstoqueBotao = () => {
-    // Implemente a lógica de verificar o estoque para o botão aqui
   };
 
   const atualizarEstoque = () => {
-    // Implemente a lógica de atualizar o estoque aqui
   };
 
   const gravar = () => {
-    // Implemente a lógica de gravação aqui
   };
 
   return (
@@ -124,7 +118,7 @@ const Requisicao = () => {
                     ></select>
                     <img
                       className="btnAdd"
-                      src="assets/img/add.svg"
+                      src={Add}
                       alt=""
                     />
                   </div>
@@ -140,7 +134,7 @@ const Requisicao = () => {
                     ></select>
                     <img
                       className="btnAdd"
-                      src="assets/img/add.svg"
+                      src={Add}
                       alt=""
                     />
                   </div>
