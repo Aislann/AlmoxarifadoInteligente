@@ -1,53 +1,28 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-import { HiOutlineLightBulb } from "react-icons/hi";
-import { FaEdit } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { FiDelete } from "react-icons/fi";
-import { CiPlay1 } from "react-icons/ci";
 import './Gestao.css';
+import deletar from '/src/assets/deletar.svg'
+import editar from '/src/assets/editar.svg'
+import enviarEmail from '/src/assets/enviarEmail.svg'
+import emailNone from '/src/assets/emailNone.svg'
+import BenchMarking from '/src/assets/BenchMarking.svg'
+import BenchMarkingFail from '/src/assets/BenchMarkingFail.svg'
+import PlayBench from '/src/assets/PlayBench.svg'
+import NavbarLinks from '../Navbar/NavbarLinks';
+
 
 const GestaoProdutos = () => {
-    const [menuAberto, setMenuAberto] = useState(false);
-  
-    const toggleMenu = () => {
-      setMenuAberto(!menuAberto);
-    };
-
   return (
     <div>
-    <div className='selection'>
-      <nav className={`navbar ${menuAberto ? 'menu-aberto' : ''}`}>
-        <div className='menu-sanduiche' onClick={toggleMenu}>
-          <div className='barra-menu'></div>
-          <div className='barra-menu'></div>
-          <div className='barra-menu'></div>
-        </div>
-        <div className='links'>
-          <Link to={"/GestaoProdutos"}>
-            <span>Produtos</span>
-          </Link>
-          <Link to={"/Requisicao"}>
-            <span>Requisição</span>
-          </Link>
-          <Link to={"/Logs"}>
-            <span>BenchMarking Logs</span>
-          </Link>
-          <Link to={"/Configuracoes"}>
-            <span>Configurações</span>
-          </Link>
-          
-        </div>
-      </nav>
-    </div>
+    <NavbarLinks/>
       <div className="main">
         <div className="header">
           <span>Gestão de Produtos</span>
         </div>
         <div className='conteudo'>
         <div className="gestaoProdutos">
-        <Link to ={"/CadastroProdutos"}>
-        <button id='BtnInserirItens'>NOVO</button> 
+        <Link to={"/CadastroProdutos"} className='link'>
+        <button id='BtnInserirItens'>NOVO PRODUTO</button> 
         </Link>
         <table class="tabelaItens" id="tabelaItens">
             <tr>
@@ -61,53 +36,53 @@ const GestaoProdutos = () => {
             <tr>
         <td>001</td>
         <td>Produto A</td>
-        <td>R$ 25.00</td>
+        <td>R$ 00.00</td>
         <td>200</td>
         <td>100</td>
-        <td className='icones'>
-          <HiOutlineLightBulb className='BenchMarking'/>
-          <MdEmail className='enviarEmail'/>
-          <FaEdit className='editar' /> 
-          <FiDelete className='deletar'/>
+        <td className='icones'>  
+          <img src={PlayBench}/>
+          <img src={enviarEmail}/>
+          <img src={editar}/>
+          <img src={deletar}/>
           </td>
     </tr>
     <tr>
         <td>002</td>
         <td>Produto B</td>
-        <td>R$ 15.50</td>
+        <td>R$ 00.00</td>
         <td>200</td>
         <td>100</td>
         <td className='icones'>
-          <CiPlay1 className='PlayBench' />
-          <MdEmail className='enviarEmail'/>
-          <FaEdit className='editar'/>
-          <FiDelete className='deletar'/>
+          <img src={BenchMarking}/>
+          <img src={emailNone}/>
+          <img src={editar}/>
+          <img src={deletar}/>
           </td>
     </tr>
     <tr>
         <td>003</td>
         <td>Produto C</td>
-        <td>R$ 15.50</td>
+        <td>R$ 00.00</td>
         <td>200</td>
         <td>100</td>
         <td className='icones'>
-          <HiOutlineLightBulb className='BenchMarking'/>
-          <MdEmail className='enviarEmail'/>
-          <FaEdit className='editar'/>
-          <FiDelete className='deletar'/>
+        <img src={BenchMarkingFail}/>
+          <img src={enviarEmail}/>
+          <img src={editar}/>
+          <img src={deletar}/>
           </td>
     </tr>
     <tr>
         <td>004</td>
-        <td>Produto Daaaaaaaaaaaaaaa</td>
-        <td>R$ 15.50</td>
+        <td>Produto Teste</td>
+        <td>R$ 00.00</td>
         <td>200</td>
         <td>100</td>
         <td className='icones'>
-          <HiOutlineLightBulb className='BenchMarkingFail'/>
-          <MdEmail className='enviarEmail'/>
-          <FaEdit className='editar'/>
-          <FiDelete className='deletar'/>
+        <img src={BenchMarking}/>
+          <img src={emailNone}/>
+          <img src={editar}/>
+          <img src={deletar}/>
           </td>
     </tr>
 
