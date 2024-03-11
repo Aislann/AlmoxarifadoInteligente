@@ -19,9 +19,10 @@
 }
 
 .gestaoProdutos #BtnInserirItens{
-    background-color: green;
-    width: 165px;
-    height: 45px;
+    background-color: #00D222;
+    width: 130px;
+    height: 40px;
+    border-radius: 0.3rem;
     text-transform: none;
     margin-bottom: 1rem;
 }

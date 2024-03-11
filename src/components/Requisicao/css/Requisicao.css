@@ -20,8 +20,8 @@
 
 
 .header span{
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 .conteudo{
     display: flex;
