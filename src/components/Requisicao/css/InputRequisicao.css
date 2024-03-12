@@ -12,7 +12,7 @@ input, select{
     height: 20px;     
     border: 1px solid #000000;  
     border-radius: 50%;
-    
+
 }
 
 .chkPrioridadeDesabilitado{
@@ -94,9 +94,9 @@ input, select{
 }
 
 .BtnInserirItens{
-    background-color:black ;
-    width: 95px;
-    height: 50px;
+    background-color:#007C1B ;
+    width: 100px;
+    height: 40px;
     border-radius: 30px;
     display: flex;
     justify-content: center;
@@ -106,14 +106,33 @@ input, select{
     padding: 12px;
     transition: 0.4s;
     color: #ffffff;
-    font-size: 22px;
+    font-size: 18px;
 }
+.BtnCancelar{
+    background-color:#CDCDCD ;
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 12px;
+    transition: 0.4s;
+    color: black;
+    font-size: 18px;
+    border: none;
+    margin-right: 1rem;
+}
+
+
 .BtnInserirItens:hover {
-    background-color: #3a3a3a;
+    background-color: #014b11;
 }
 
 #BtnInserirItens{
-    background-color:#0095C5;
+    background-color:#007C1B;
     border: none;
     width: 100px;
     height: 40px;
@@ -130,7 +149,7 @@ input, select{
 }
 
 #BtnInserirItens:hover {
-    background-color: #005f7e;
+    background-color: #014b11;
 }
 
 #btnRemover{

@@ -59,7 +59,7 @@
     display: flex;
     flex-direction: column;
     margin-left: 8px;
-    
+
 }
 
 .grupo9{
@@ -116,7 +116,7 @@
 .btnAdd{    
     width: 30px;
     height: 30px;
-   
+
 }
 .btnAdd:hover{
     cursor: pointer; 
@@ -137,7 +137,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     border: 1px solid #CDCDCD;
     padding: 10px;
     width: 96.7%;
@@ -166,7 +165,7 @@
     margin-left: 5px;      
     position: relative; /*legenda */
     /* display: inline-block    */
-      
+
 }
 
 .legenda {
@@ -208,13 +207,12 @@
 }
 .grupoBtnInserirItens{
     display: flex;
-    justify-content: center;
-    align-items: center;  
+    align-items: flex-end;  
     margin-left: 5px; 
+    flex-direction: row-reverse;
 }
 
 
-/* css para a tabela */
 .tabelaItens{
     border: 1px solid #CDCDCD;
     border-collapse: collapse;
@@ -257,9 +255,6 @@
 }
 
 .grupoTotal {
-    display: flex;
-    justify-items:center;
-    align-items: center;
     margin-top: 20px;
 }
 
@@ -271,4 +266,10 @@
 .grupoTotal span{
     font-size: 18px;
     font-weight: bold;
+}
+
+.camposItens .grupoTotal{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
