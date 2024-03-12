@@ -34,25 +34,12 @@
 
 #trocar{
     color: #03BCF6;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#trocar{
-    color: #0095C5;
-
     background-color: white;
     display: flex;
     padding: 16px;
     border-radius: 5px;  
     border: 1px solid #adadad;
-
     outline-color: #90ee90;
-
-    outline-color: #00c569;
-
     width: 100%;
     margin-top: 1rem;
 
@@ -70,18 +57,13 @@
 
 }
 
-
+.add {
     color: white;
     background-color: #00D222;
     border: none;
     margin-top: 1rem;
     border-radius: 5px;
     padding: 1rem;
-
-    border: none;
-    color: #00c569;
-    margin-top: 1rem;
-    background-color: white;
     cursor: pointer;
     
 }
