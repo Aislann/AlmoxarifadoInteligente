@@ -17,24 +17,55 @@
 }
 
 .campoEmail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width:95%;
+    gap: 7px;
 }
 
 .campoZap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 95%;
+    gap: 7px;
 }
 
-.conteudoConfig button{
-    color: #0095C5;
+#trocar{
+    color: #03BCF6;
     background-color: white;
     display: flex;
-    padding: 1rem;
+    padding: 16px;
     border-radius: 5px;  
     border: 1px solid #adadad;
-    outline-color: #00c569;
+    outline-color: #90ee90;
     width: 100%;
     margin-top: 1rem;
 
+}
+
+.conteudoConfig input{
+    background-color: white;
+    display: flex;
+    padding: 11px;
+    border-radius: 5px;  
+    border: 1px solid #adadad;
+    outline-color: #90ee90;
+    width: 100%;
+    margin-top: 1rem;
+
+}
+
+.add {
+    color: white;
+    background-color: #00D222;
+    border: none;
+    margin-top: 1rem;
+    border-radius: 5px;
+    padding: 1rem;
+    cursor: pointer;
+    
 }
 
 .link-sair{
