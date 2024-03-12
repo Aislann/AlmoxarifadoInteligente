@@ -4,21 +4,22 @@ import './css/InputRequisicao.css';
 import './css/Responsividade.css'; 
 import NavbarLinks from '../Navbar/NavbarLinks';
 import Add from '/public/img/add.svg'
-import { AdicionarCorAoFocarInput, CarregarCategorias, CarregarMotivos, adcionarRegraCamposSomenteNumeros ,verificarEstoque} from './js/main.jsx';
-import {categorias, motivos, produtos, departamentos} from './js/dados'
+import Branco from '/public/img/branco.svg'
+// import './js/dados'
+// import './js/main'
+
 
 const Requisicao = () => {
   const [numeroRequisicao, setNumeroRequisicao] = useState('');
+  const [idDepartamento, setIdDepartamento] = useState('');
 
   useEffect(() => {
-    AdicionarCorAoFocarInput();
-    CarregarCategorias({ categorias });
-    CarregarMotivos({ motivos });
-    adcionarRegraCamposSomenteNumeros();
-    verificarEstoque()
-  }, [categorias, motivos]);
+  }, []);
 
   const habilitarMotivo = () => {
+  };
+
+  const verificarEstoque = () => {
   };
 
   const verificarEstoqueBotao = () => {
@@ -29,7 +30,6 @@ const Requisicao = () => {
 
   const gravar = () => {
   };
-  
 
   return (
     <div>
@@ -290,8 +290,8 @@ const Requisicao = () => {
                   Gravar
                 </button>
                 <button
-                className="BtnCancelar"
-                id="btn-cancelar">
+                className="BtnInserirItens"
+                id="btn-gravar">
                   Cancelar
                 </button>
               </div>

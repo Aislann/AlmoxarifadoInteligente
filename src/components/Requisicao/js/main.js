@@ -1,87 +1,54 @@
-function adicionarCorAoFocarInput() {
-    const listinput = document.querySelectorAll("input");
 
-    listinput.forEach(function(campo){
-        campo.addEventListener('focus',function(){
-        campo.style.outlineColor ="#90ee90";
+document.getElementById('categoriaMotivo').addEventListener('change',function(){
+    carregarMotivos();
+});
 
-        })
 
-        campo.addEventListener('blur',function(){
-            campo.style.outlineColor = "white";
+
+document.getElementById('CodigoProduto').addEventListener("keyup",function(){
+    const codigoPesquisado = document.getElementById('CodigoProduto').value;
+    let produtosFiltrados = produtos.filter((p)=> p.idProduto==codigoPesquisado);
+
+    if(produtosFiltrados.length > 0){
+        document.getElementById('DescricaoProduto').value=produtosFiltrados[0].Descricao;
+    } else{
+        document.getElementById('DescricaoProduto').value="";
+    }
+    if(produtosFiltrados.length > 0){
+        document.getElementById('Estoque').value=produtosFiltrados[0].Estoque;
+    } else{
+        document.getElementById('Estoque').value="";
+    }
+
+});
+
+document.getElementById('idDepartamento').addEventListener("keyup",function() {
+    const codigoPesquisado = document.getElementById('idDepartamento').value;
+    let departamentosFiltrados = departamentos.filter((p)=> p.idDep==codigoPesquisado);
+
+    if(departamentosFiltrados.length > 0){
+        document.getElementById('departamento').value=departamentosFiltrados[0].Descricao;
+    } else{
+        document.getElementById('departamento').value="";
+    }    
+});
+
+document.getElementById('idFuncionario').addEventListener("keyup",function() {
+    const codigoPesquisado = document.getElementById('idFuncionario').value;
+    let departamentosFiltrados = departamentos.filter((p)=> p.idFunc==codigoPesquisado);
+
+    if(departamentosFiltrados.length > 0){
+        document.getElementById('NomeFuncionario').value=departamentosFiltrados[0].Responsavel;
+    } else{
+        document.getElementById('NomeFuncionario').value="";
+    }
+    if(departamentosFiltrados.length > 0){
+        document.getElementById('cargo').value=departamentosFiltrados[0].cargo;
+    } else{
+        document.getElementById('cargo').value="";
+    }
     
-        })
-        
-    });
-
-
-}
-// function carregarCategorias(){
-//     const selectCategoria = document.getElementById('categoriaMotivo');
-//     selectCategoria.innerHTML="";
-
-//     const optFirst = document.createElement('option');
-//     optFirst.value = -1;
-//     optFirst.text = "";
-//     selectCategoria.add(optFirst);
-
-//     categorias.forEach(function(categoria){
-//         var opt = document.createElement('option');
-//         opt.value=categoria.idCategoria;
-//         opt.text=categoria.Descrição;
-
-//         selectCategoria.add(opt);
-
-//     }) 
-// }
-
-// function carregarMotivos(){
-//     const selectMotivo = document.getElementById('Motivo');
-//     selectMotivo.innerHTML="";
-
-//     const optFirst = document.createElement('option');
-//     optFirst.value = -1;
-//     optFirst.text = "";
-//     selectMotivo.add(optFirst);
-
-//     const valorCategoria = document.getElementById('categoriaMotivo').value;
-//     console.log("Categoria selecionada: "+ valorCategoria)
-//     const motivosFiltrados = motivos.filter((m)=> m.idCategoria==valorCategoria)
-
-//     motivosFiltrados.forEach(function(motivo){
-//         var opt = document.createElement('option');
-//         opt.value=motivo.idMotivo;
-//         opt.text=motivo.Descrição;
-//         selectMotivo.add(opt);
-
-//     }) 
-// }
-
-// document.getElementById('categoriaMotivo').addEventListener('change',function(){
-//     carregarMotivos();
-// });
-
-
-
-// document.getElementById('CodigoProduto').addEventListener("keyup",function(){
-//     const codigoPesquisado = document.getElementById('CodigoProduto').value;
-//     let produtosFiltrados = produtos.filter((p)=> p.idProduto==codigoPesquisado);
-
-//     if(produtosFiltrados.length > 0){
-//         document.getElementById('DescricaoProduto').value=produtosFiltrados[0].Descricao;
-//     } else{
-//         document.getElementById('DescricaoProduto').value="";
-//     }
-//     if(produtosFiltrados.length > 0){
-//         document.getElementById('Estoque').value=produtosFiltrados[0].Estoque;
-//     } else{
-//         document.getElementById('Estoque').value="";
-//     }
-
-
-// });
-
-
+});
 
 
 document.getElementById('btn-gravar').addEventListener('click',function(){
@@ -138,21 +105,9 @@ function eventoClickPrioridadeHabilitarCor(){
     });
 }
 
-
-function adcionarRegraCamposSomenteNumeros(){
-    const elementosAceitaSoNumeros = document.querySelectorAll('[data-only-number="true"]')
-    elementosAceitaSoNumeros.forEach(function(campo){
-        campo.addEventListener('keypress',function(e){
-            if (e.keyCode<48 || e.keyCode>59){
-                e.preventDefault();
-            }
-        })
-    })
-} // adcionar numero
-
 adicionarCorAoFocarInput(); 
-// carregarCategorias();
-// carregarMotivos();
+carregarCategorias();
+carregarMotivos();
 adcionarRegraCamposSomenteNumeros();
 criarBtnRemover()
 
@@ -243,29 +198,29 @@ function criarBtnRemover(tabela, objLinha, numeroLinha) {
 
 
 
-// function verificarEstoque() {
-//     const codigoProdutoInput = document.getElementById('CodigoProduto');
-//     const codigoProduto = parseInt(codigoProdutoInput.value);
+function verificarEstoque() {
+    const codigoProdutoInput = document.getElementById('CodigoProduto');
+    const codigoProduto = parseInt(codigoProdutoInput.value);
 
-//     const produto = produtos.find(p => p.idProduto === codigoProduto);
+    const produto = produtos.find(p => p.idProduto === codigoProduto);
 
-//     if (produto) {
-//         const nivelImg = document.getElementById('nivel');
+    if (produto) {
+        const nivelImg = document.getElementById('nivel');
 
-//         const estoqueMinimo = produto.EstoqueMinimo;
-//         const limiteSuperior = estoqueMinimo * 1.1;
-//         const limiteInferior = estoqueMinimo * 0.9;
+        const estoqueMinimo = produto.EstoqueMinimo;
+        const limiteSuperior = estoqueMinimo * 1.1;
+        const limiteInferior = estoqueMinimo * 0.9;
 
-//         if (produto.Estoque > limiteSuperior) {
-//             nivelImg.src = "assets/img/verde.svg";
-//         } else if (produto.Estoque < limiteInferior) {
-//             nivelImg.src = "assets/img/vermelho.svg"; 
-//         } 
-//         else {
-//             nivelImg.src = "assets/img/amarelo.svg"; 
-//         }
-// }
-// }
+        if (produto.Estoque > limiteSuperior) {
+            nivelImg.src = "assets/img/verde.svg";
+        } else if (produto.Estoque < limiteInferior) {
+            nivelImg.src = "assets/img/vermelho.svg"; 
+        } 
+        else {
+            nivelImg.src = "assets/img/amarelo.svg"; 
+        }
+}
+}
 
 
 //Adcionar numero do pedido

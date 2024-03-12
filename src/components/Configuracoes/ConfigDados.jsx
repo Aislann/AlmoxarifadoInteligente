@@ -32,7 +32,11 @@ const ConfigDados = () => {
                             <input type="email" placeholder="Digite seu e-mail..." />
                         )}
 
+
                         <button className='add' onClick={salvarEmail} >Adicionar</button>
+
+                        <button className='add' >Adicionar</button>
+
 
                     </div>
                     <div className='campoZap'>
@@ -42,7 +46,11 @@ const ConfigDados = () => {
                             <input type="tel" placeholder="Digite seu número..." />
                         )}
 
+
                         <button className='add' onClick={salvarWhatsapp} >Adicionar</button>
+
+                        <button className='add' >Adicionar</button>
+
                     </div>
                     <Link to={"/"} className='link-sair'>
                         <span className='sair'>Sair</span>

@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import './Gestao.css';
+import NavbarLinks from '../Navbar/NavbarLinks';
+import './CadastroProd.css';
 
 const CadastroProdutos = () => {
     const [menuAberto, setMenuAberto] = useState(false);
@@ -11,55 +13,25 @@ const CadastroProdutos = () => {
 
   return (
     <div>
-    <div className='selection'>
-      <nav className={`navbar ${menuAberto ? 'menu-aberto' : ''}`}>
-        <div className='menu-sanduiche' onClick={toggleMenu}>
-          <div className='barra-menu'></div>
-          <div className='barra-menu'></div>
-          <div className='barra-menu'></div>
-        </div>
-        <div className='links'>
-          <Link to={"/GestaoProdutos"}>
-            <span>Produtos</span>
-          </Link>
-          <Link to={"/Requisicao"}>
-            <span>Requisição</span>
-          </Link>
-          <Link to={"/Logs"}>
-            <span>BenchMarking Logs</span>
-          </Link>
-          <Link to={"/Configuracoes"}>
-            <span>Configurações</span>
-          </Link>
-          
-        </div>
-      </nav>
-    </div>
+      <NavbarLinks/>
       <div className="main">
         <div className="header">
           <span>Cadastro de Produtos</span>
         </div>
-        <div className='conteudo'>
-        <div className="gestaoProdutos">
-        
-        <table class="tabelaItens" id="tabelaItens">
-            <tr>
-                <th>Código</th>
-                <th>Produto</th>
-                <th>Preço</th>
-                <th>Estoque Atual</th>
-                <th>Estoque Mínimo</th>
-            </tr>
-    <tr>
-        <td>002</td>
-        <td>Produto B</td>
-        <td>R$ 15.50</td>
-        <td>200</td>
-        <td>100</td>
-    </tr>
+        <div className="conteudo">
+        <div className="cadProd">
+          <label htmlFor="">Nome Produto: </label>
+          <input type="text" className='addProduto' placeholder='Insira um novo produto...'/>
 
-          </table>
-          <button id='BtnInserirItens'>Cadastrar</button> 
+          <label htmlFor="">Estoque Atual: </label>
+          <input type="number" className='addProduto' placeholder='Insira a quantidade do estoque atual...'/>
+
+          <label htmlFor="">Estoque Mínimo: </label>
+          <input type="number" className='addProduto' placeholder='Insira a quantidade do estoque mínimo...'/>
+
+          <Link className='btn-cad' to={"/GestaoProdutos"} >
+            <button className='btn-addProd' id='BtnInserirItens'>Cadastrar</button>
+          </Link>
           </div>
         </div>
       </div>

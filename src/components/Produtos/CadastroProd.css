@@ -1,0 +1,34 @@
+.cadProd{
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    height: 325px;
+
+}
+
+.cadProd input{
+    padding: 0.9rem;
+    margin-bottom: 1.1rem;
+    border-radius: 5px;
+    font-size: 14px;
+    outline-color: #90ee90;
+}
+
+.cadProd #BtnInserirItens{
+    background-color: #00D222;
+    width: 130px;
+    height: 40px;
+    border-radius: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.btn-cad{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+
+}
+
+.cadProd #BtnInserirItens:hover{
+    background-color: #00bb1f;
+}

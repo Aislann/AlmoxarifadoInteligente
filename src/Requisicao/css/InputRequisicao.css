@@ -12,7 +12,7 @@ input, select{
     height: 20px;     
     border: 1px solid #000000;  
     border-radius: 50%;
-
+    
 }
 
 .chkPrioridadeDesabilitado{
@@ -95,8 +95,8 @@ input, select{
 
 .BtnInserirItens{
     background-color:#007C1B ;
-    width: 100px;
-    height: 40px;
+    width: 95px;
+    height: 50px;
     border-radius: 30px;
     display: flex;
     justify-content: center;
@@ -106,27 +106,8 @@ input, select{
     padding: 12px;
     transition: 0.4s;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 22px;
 }
-.BtnCancelar{
-    background-color:#CDCDCD ;
-    width: 100px;
-    height: 40px;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center ;
-    cursor: pointer;
-    margin-top: 20px;
-    padding: 12px;
-    transition: 0.4s;
-    color: black;
-    font-size: 18px;
-    border: none;
-    margin-right: 1rem;
-}
-
-
 .BtnInserirItens:hover {
     background-color: #014b11;
 }

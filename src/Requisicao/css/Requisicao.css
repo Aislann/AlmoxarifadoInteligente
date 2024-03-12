@@ -59,7 +59,7 @@
     display: flex;
     flex-direction: column;
     margin-left: 8px;
-
+    
 }
 
 .grupo9{
@@ -116,7 +116,7 @@
 .btnAdd{    
     width: 30px;
     height: 30px;
-
+   
 }
 .btnAdd:hover{
     cursor: pointer; 
@@ -165,7 +165,7 @@
     margin-left: 5px;      
     position: relative; /*legenda */
     /* display: inline-block    */
-
+      
 }
 
 .legenda {
