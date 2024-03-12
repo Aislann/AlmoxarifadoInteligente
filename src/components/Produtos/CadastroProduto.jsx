@@ -18,34 +18,19 @@ const CadastroProdutos = () => {
         <div className="header">
           <span>Cadastro de Produtos</span>
         </div>
-        <div className='conteudo'>
-        <div className="gestaoProdutos">
-        
-        <table class="tabelaItens" id="tabelaItens">
-            <tr>
-                <th>Código</th>
-                <th>Produto</th>
-                <th>Estoque Atual</th>
-                <th>Estoque Mínimo</th>
-            </tr>
+        <div className="conteudo">
+        <div className="cadProd">
+          <label htmlFor="">Nome Produto: </label>
+          <input type="text" className='addProduto' placeholder='Insira um novo produto...'/>
 
-            <tr>
-                <td>002</td>
-                <td>Produto B</td>
-                <td>200</td>
-                <td>100</td>
-            </tr>
+          <label htmlFor="">Estoque Atual: </label>
+          <input type="number" className='addProduto' placeholder='Insira a quantidade do estoque atual...'/>
 
-            <tr>
-            <td>000</td>
-            <td><input type="text" className='addProduto' placeholder='Insira um novo produto...'/></td>
-            <td><input type="number" className='addProduto' placeholder='Insira o estoque atual...'/></td>
-            <td><input type="number" className='addProduto' placeholder='Insira um estoque mínimo...'/></td>
-            </tr>
+          <label htmlFor="">Estoque Mínimo: </label>
+          <input type="number" className='addProduto' placeholder='Insira a quantidade do estoque mínimo...'/>
 
-          </table>
-          <Link className='cad' to={"/GestaoProdutos"} >
-          <button className='btn-addProd' id='BtnInserirItens'>Cadastrar</button>
+          <Link className='btn-cad' to={"/GestaoProdutos"} >
+            <button className='btn-addProd' id='BtnInserirItens'>Cadastrar</button>
           </Link>
           </div>
         </div>
