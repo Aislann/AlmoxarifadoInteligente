@@ -134,8 +134,8 @@ const GestaoProdutos = () => {
               onChange={(e) => setProdutoParaEditar({ ...produtoParaEditar, estoqueMinimo: e.target.value })}
             />
             <div>
-              <button onClick={handleSaveChanges}>Salvar Alterações</button>
-              <button onClick={closeModal}>Fechar</button>
+              <button className='salvar' onClick={handleSaveChanges}>Salvar Alterações</button>
+              <button className='fechar' onClick={closeModal}>Fechar</button>
             </div>
           </div>
         )}
