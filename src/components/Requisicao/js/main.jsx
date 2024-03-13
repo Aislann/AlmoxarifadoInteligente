@@ -63,26 +63,26 @@ export function adcionarRegraCamposSomenteNumeros(){
     })
 } 
 
-export function verificarEstoque() {
-    const codigoProdutoInput = document.getElementById('CodigoProduto');
-    const codigoProduto = parseInt(codigoProdutoInput.value);
+// export function verificarEstoque() {
+//     const codigoProdutoInput = document.getElementById('CodigoProduto');
+//     const codigoProduto = parseInt(codigoProdutoInput.value);
 
-    const produto = produtos.find(p => p.idProduto === codigoProduto);
+//     const produto = produtos.find(p => p.idProduto === codigoProduto);
 
-    if (produto) {
-        const nivelImg = document.getElementById('nivel');
+//     if (produto) {
+//         const nivelImg = document.getElementById('nivel');
 
-        const estoqueMinimo = produto.EstoqueMinimo;
-        const limiteSuperior = estoqueMinimo * 1.1;
-        const limiteInferior = estoqueMinimo * 0.9;
+//         const estoqueMinimo = produto.EstoqueMinimo;
+//         const limiteSuperior = estoqueMinimo * 1.1;
+//         const limiteInferior = estoqueMinimo * 0.9;
 
-        if (produto.Estoque > limiteSuperior) {
-            nivelImg.src = "assets/img/verde.svg";
-        } else if (produto.Estoque < limiteInferior) {
-            nivelImg.src = "assets/img/vermelho.svg"; 
-        } 
-        else {
-            nivelImg.src = "assets/img/amarelo.svg"; 
-        }
-}
-}
+//         if (produto.Estoque > limiteSuperior) {
+//             nivelImg.src = "assets/img/verde.svg";
+//         } else if (produto.Estoque < limiteInferior) {
+//             nivelImg.src = "assets/img/vermelho.svg"; 
+//         } 
+//         else {
+//             nivelImg.src = "assets/img/amarelo.svg"; 
+//         }
+// }
+// }

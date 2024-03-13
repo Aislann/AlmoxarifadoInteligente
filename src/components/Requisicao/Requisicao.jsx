@@ -4,8 +4,8 @@ import './css/InputRequisicao.css';
 import './css/Responsividade.css'; 
 import NavbarLinks from '../Navbar/NavbarLinks';
 import Add from '/public/img/add.svg'
-import { AdicionarCorAoFocarInput, CarregarCategorias, CarregarMotivos, adcionarRegraCamposSomenteNumeros ,verificarEstoque} from './js/main.jsx';
-import {categorias, motivos, produtos, departamentos} from './js/dados'
+import { AdicionarCorAoFocarInput, CarregarCategorias, CarregarMotivos, adcionarRegraCamposSomenteNumeros} from './js/main.jsx';
+import {categorias, motivos, produtos, departamentos} from './js/dados.jsx'
 
 const Requisicao = () => {
   const [numeroRequisicao, setNumeroRequisicao] = useState('');
@@ -15,13 +15,16 @@ const Requisicao = () => {
     CarregarCategorias({ categorias });
     CarregarMotivos({ motivos });
     adcionarRegraCamposSomenteNumeros();
-    verificarEstoque()
+    
   }, [categorias, motivos]);
 
   const habilitarMotivo = () => {
   };
 
   const verificarEstoqueBotao = () => {
+  };
+
+  const verificarEstoque = () => {
   };
 
   const atualizarEstoque = () => {
