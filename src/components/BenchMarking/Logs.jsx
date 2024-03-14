@@ -25,7 +25,7 @@ const Logs = () => {
         <div className="header">
           <span>BenchMarking Logs</span>
         </div>
-        <div className='conteudo'>
+        <div className='conteudoLogs'>
           <table class="tabelaLogs" id="tabelaItens">
             <thead>
               <tr>

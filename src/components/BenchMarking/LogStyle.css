@@ -1,3 +1,17 @@
+.conteudoLogs{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    background-color: white;
+    padding: 1.2rem;
+    border: 1px solid black;
+    border-radius: 2rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+
+}
+
 .tabelaLogs{
     align-self: center;
     border: 1px solid #CDCDCD;
@@ -5,7 +19,6 @@
     width: 95%;
     font-size: 16px;
     font-weight:unset;
-    margin-bottom: 20px;
 }
 
 .tabelaLogs th{
