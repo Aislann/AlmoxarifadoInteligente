@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './css/Requisicao.css'; 
 import './css/InputRequisicao.css'; 
 import './css/Responsividade.css'; 
+import NavbarLinks from '../Navbar/NavbarLinks';
+import Add from '/public/img/add.svg'
+import Branco from '/public/img/branco.svg'
 // import './js/dados'
 // import './js/main'
 
@@ -9,38 +12,31 @@ import './css/Responsividade.css';
 const Requisicao = () => {
   const [numeroRequisicao, setNumeroRequisicao] = useState('');
   const [idDepartamento, setIdDepartamento] = useState('');
-  // Adicione mais estados conforme necessário
 
   useEffect(() => {
-    // Lógica de inicialização aqui, se necessário
-    // Exemplo: carregarDadosIniciais();
   }, []);
 
   const habilitarMotivo = () => {
-    // Implemente a lógica de habilitar o motivo aqui
   };
 
   const verificarEstoque = () => {
-    // Implemente a lógica de verificar o estoque aqui
   };
 
   const verificarEstoqueBotao = () => {
-    // Implemente a lógica de verificar o estoque para o botão aqui
   };
 
   const atualizarEstoque = () => {
-    // Implemente a lógica de atualizar o estoque aqui
   };
 
   const gravar = () => {
-    // Implemente a lógica de gravação aqui
   };
 
   return (
     <div>
+      <NavbarLinks/>
       <div className="main">
         <div className="header">
-          <span> Pedido de Requisição de Saída</span>
+          <span> Novo Pedido de Requisição de Saída</span>
         </div>
         <div className="conteudo">
           <div className="titulo">
@@ -122,7 +118,7 @@ const Requisicao = () => {
                     ></select>
                     <img
                       className="btnAdd"
-                      src="assets/img/add.svg"
+                      src={Add}
                       alt=""
                     />
                   </div>
@@ -138,7 +134,7 @@ const Requisicao = () => {
                     ></select>
                     <img
                       className="btnAdd"
-                      src="assets/img/add.svg"
+                      src={Add}
                       alt=""
                     />
                   </div>
@@ -283,9 +279,8 @@ const Requisicao = () => {
                   disabled
                   data-obrigatorio="true"
                 />
-              </div>
-              <div className="grupoBtnInserirItens"></div>
-              <div>
+              </div >
+              <div className="grupoBtnInserirItens">
                 <button
                   className="BtnInserirItens"
                   id="btn-gravar"
@@ -293,6 +288,11 @@ const Requisicao = () => {
                   onClick={gravar}
                 >
                   Gravar
+                </button>
+                <button
+                className="BtnInserirItens"
+                id="btn-gravar">
+                  Cancelar
                 </button>
               </div>
             </div>
