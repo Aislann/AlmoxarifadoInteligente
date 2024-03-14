@@ -1,0 +1,131 @@
+.gestaoProdutos{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.gestaoProdutos .tabelaItens{
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.gestaoProdutos .tabelaItens th{
+    text-align: center;
+    padding: 0.5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+.gestaoProdutos .tabelaItens td{
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.gestaoProdutos #BtnInserirItens{
+    background-color: #00D222;
+    width: 130px;
+    height: 40px;
+    border-radius: 0.3rem;
+    text-transform: none;
+    margin-bottom: 1rem;
+}
+
+.gestaoProdutos .icones{
+    display: flex;
+    border: none;
+    gap: 0.5rem;
+    cursor: pointer;
+} 
+
+@media only screen and (max-width: 768px) {
+    .gestaoProdutos .icones{
+        width: 30px;
+        margin-right: -5px;
+        gap: 0.5rem;
+        flex-direction: column;
+    } 
+    .gestaoProdutos .tabelaItens td{
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .gestaoProdutos .tabelaItens th{
+        padding-right: 0.9rem;     
+    }
+
+    .gestaoProdutos #BtnInserirItens{
+        width: 145px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #adadad;
+    padding: 20px;
+    width: 400px;
+    max-width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+  }
+  
+  .modal h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .modal label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .modal input {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #adadad;
+    border-radius: 5px;
+    outline-color: #90ee90;
+    font-size: 16px;
+  }
+  
+  .modal div {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+  }
+  
+  .salvar{
+    padding: 10px;
+    background-color: #00D222;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .fechar{
+    padding: 10px;
+    background-color: #adadad;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+
+  .salvar:hover {
+    background-color: #00bb1f;
+  }
+
+  .fechar:hover {
+    background-color: #8b8b8b;
+  }
+  
