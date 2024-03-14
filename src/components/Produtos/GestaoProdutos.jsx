@@ -13,8 +13,7 @@ import Modal from 'react-modal';
 
 const GestaoProdutos = () => {
   const [dadosDaApi, setDadosDaApi] = useState([]);
-
-  const [modalIsOpen, setModalIsOpen] = useState(false); // Novo estado para controlar o modal
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [produtoParaEditar, setProdutoParaEditar] = useState(null);
 
   useEffect(() => {
@@ -44,6 +43,24 @@ const GestaoProdutos = () => {
     }
   };
 
+
+  const handlePlayBench = async (idProduto) => {
+    try {
+      // Faz uma solicitação para obter o produto atual
+      const response = await axios.get(`https://localhost:7226/api/GestaoProdutos/VerificarNovoProduto/${idProduto}`);
+      const produto = response.data;
+  
+      // Atualiza o preço do produto para 500
+      produto.preco = 700;
+  
+      // Faz uma solicitação para atualizar o produto no servidor
+      await axios.patch(`https://localhost:7226/api/GestaoProdutos/${idProduto}`, produto);
+  
+      console.log('Preço atualizado com sucesso.');
+    } catch (error) {
+      console.error('Erro ao executar PlayBench:', error);
+    }
+  };
   
   const handleSaveChanges = async () => {
     try {
@@ -54,13 +71,11 @@ const GestaoProdutos = () => {
       console.error('Erro ao salvar alterações:', error);
     }
   };
-  
 
   const closeModal = () => {
     setProdutoParaEditar(null);
     setModalIsOpen(false);
   };
-
 
   return (
     <div>
@@ -74,7 +89,7 @@ const GestaoProdutos = () => {
             <Link to={"/CadastroProdutos"} className="link">
               <button id="BtnInserirItens">NOVO</button>
             </Link>
-            <table class="tabelaItens" id="tabelaItens">
+            <table className="tabelaItens" id="tabelaItens">
               <thead>
                 <tr>
                   <th>Código</th>
@@ -94,7 +109,11 @@ const GestaoProdutos = () => {
                     <td>{item.estoqueAtual}</td>
                     <td>{item.estoqueMinimo}</td>
                     <td className="icones">
-                      <img src={PlayBench} alt="PlayBench" />
+                      {item.estado === 'executado' ? (
+                        <img src={BenchMarking} alt="BenchMarking" />
+                      ) : (
+                        <img src={PlayBench} alt="PlayBench" onClick={() => handlePlayBench(item.idProduto)} />
+                      )}
                       <img src={enviarEmail} alt="Enviar Email" />
                       <img src={editar} alt="Editar" onClick={() => handleEditarProduto(item.idProduto)} />
                       <img src={deletar} alt="Deletar" onClick={() => handleDeletarProduto(item.idProduto)} />
@@ -104,42 +123,42 @@ const GestaoProdutos = () => {
               </tbody>
             </table>
             <Modal
-        isOpen={modalIsOpen}
-        contentLabel="Editar Produto"
-        className="modal" // Adicione uma classe de estilo para personalização (opcional)
-      >
-        {produtoParaEditar && (
-          <div>
-            <h2>Editar Produto</h2>
-            <p>Código do Produto: {produtoParaEditar.idProduto}</p>
-            <label>Descrição:</label>
-            <input
-              type="text"
-              id="descricao"
-              value={produtoParaEditar.descricao}
-              onChange={(e) => setProdutoParaEditar({ ...produtoParaEditar, descricao: e.target.value })}
-            />
-            <label>Estoque Atual:</label>
-            <input
-              type="text"
-              id="descricao"
-              value={produtoParaEditar.estoqueAtual}
-              onChange={(e) => setProdutoParaEditar({ ...produtoParaEditar, estoqueAtual: e.target.value })}
-            />
-            <label>Estoque Minímo:</label>
-            <input
-              type="number"
-              id="descricao"
-              value={produtoParaEditar.estoqueMinimo}
-              onChange={(e) => setProdutoParaEditar({ ...produtoParaEditar, estoqueMinimo: e.target.value })}
-            />
-            <div>
-              <button className='salvar' onClick={handleSaveChanges}>Salvar Alterações</button>
-              <button className='fechar' onClick={closeModal}>Fechar</button>
-            </div>
-          </div>
-        )}
-      </Modal>
+              isOpen={modalIsOpen}
+              contentLabel="Editar Produto"
+              className="modal"
+            >
+              {produtoParaEditar && (
+                <div>
+                  <h2>Editar Produto</h2>
+                  <p>Código do Produto: {produtoParaEditar.idProduto}</p>
+                  <label>Descrição:</label>
+                  <input
+                    type="text"
+                    id="descricao"
+                    value={produtoParaEditar.descricao}
+                    onChange={(e) => setProdutoParaEditar({ ...produtoParaEditar, descricao: e.target.value })}
+                  />
+                  <label>Estoque Atual:</label>
+                  <input
+                    type="text"
+                    id="descricao"
+                    value={produtoParaEditar.estoqueAtual}
+                    onChange={(e) => setProdutoParaEditar({ ...produtoParaEditar, estoqueAtual: e.target.value })}
+                  />
+                  <label>Estoque Mínimo:</label>
+                  <input
+                    type="number"
+                    id="descricao"
+                    value={produtoParaEditar.estoqueMinimo}
+                    onChange={(e) => setProdutoParaEditar({ ...produtoParaEditar, estoqueMinimo: e.target.value })}
+                  />
+                  <div>
+                    <button className='salvar' onClick={handleSaveChanges}>Salvar Alterações</button>
+                    <button className='fechar' onClick={closeModal}>Fechar</button>
+                  </div>
+                </div>
+              )}
+            </Modal>
           </div>
         </div>
       </div>
