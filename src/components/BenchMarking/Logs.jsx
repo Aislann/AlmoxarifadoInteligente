@@ -7,7 +7,7 @@ const Logs = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://localhost:7098/api/Logrobos');
+        const response = await fetch('https://localhost:7226/api/Logrobo');
         const data = await response.json();
         setLogs(data);
       } catch (error) {
