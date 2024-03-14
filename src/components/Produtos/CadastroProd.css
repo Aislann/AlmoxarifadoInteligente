@@ -1,9 +1,7 @@
 .cadProd{
     display: flex;
-    align-items: center;
     flex-direction: column;
     width: 400px;
-    max-width: 520px;
 }
 
 .cadProd label {
@@ -14,7 +12,7 @@
 .cadProd input{
     display: flex;
     padding: 0.5rem;
-    max-width: 300px;
+    max-width: 380px;
     width: 500px;
     margin-bottom: 1.1rem;
     border-radius: 5px;
