@@ -1,7 +1,26 @@
-.cadProd{
+.conteudoCad{
     display: flex;
     flex-direction: column;
-    width: 480px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    background-color: white;
+    padding-top: 3vh;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    padding-bottom: 1vh;
+    border: 1px solid black;
+    border-radius: 2rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    font-size: 25px; 
+    max-width: 400px;
+}
+
+.cadProd{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    max-width: 520px;
 }
 
 .cadProd label {
@@ -10,28 +29,32 @@
 }
 
 .cadProd input{
+    display: flex;
     padding: 0.5rem;
+    max-width: 300px;
+    width: 500px;
     margin-bottom: 1.1rem;
     border-radius: 5px;
     font-size: 14px;
     outline-color: #90ee90;
 }
 
-.cadProd #BtnInserirItens{
+.btn-addProd{
+    font-size: 16px;
+    color: white;
     background-color: #00D222;
     width: 130px;
     height: 40px;
     border-radius: 0.3rem;
-    margin-bottom: 1rem;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-cad{
     text-decoration: none;
-    display: flex;
-    justify-content: center;
-
+    margin-bottom: 20px;
 }
 
-.cadProd #BtnInserirItens:hover{
+.btn-addProd:hover{
     background-color: #00bb1f;
 }

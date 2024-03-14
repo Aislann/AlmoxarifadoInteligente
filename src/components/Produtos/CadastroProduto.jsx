@@ -52,7 +52,7 @@ const CadastroProdutos = () => {
             <input type="number" className='addProduto' placeholder='Insira a quantidade do estoque mínimo...' onChange={(e) => setEstoqueMinimo(e.target.value)} />
 
             <Link className='btn-cad' to={"/GestaoProdutos"} >
-            <button className='btn-addProd' id='BtnInserirItens' onClick={handleCadastrarProduto}>Cadastrar</button>
+            <button className='btn-addProd' id='' onClick={handleCadastrarProduto}>Cadastrar</button>
             </Link>
           </div>
         </div>
