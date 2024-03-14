@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavbarLinks from '../Navbar/NavbarLinks';
+import './LogStyle.css'
 
 const Logs = () => {
   const [logs, setLogs] = useState([]);
@@ -25,7 +26,7 @@ const Logs = () => {
           <span>BenchMarking Logs</span>
         </div>
         <div className='conteudo'>
-          <table>
+          <table class="tabelaLogs" id="tabelaItens">
             <thead>
               <tr>
                 <th>Código Robô</th>
