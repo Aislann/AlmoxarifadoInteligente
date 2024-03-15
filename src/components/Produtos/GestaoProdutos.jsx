@@ -24,15 +24,36 @@ const GestaoProdutos = () => {
       .catch(error => console.error('Erro ao buscar dados da API:', error));
   }, []);
 
-  const handleDeletarProduto = async (idProduto) => {
+  useEffect(() => {
+    fetchData();
+    const interval = setInterval(fetchData, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const fetchData = async () => {
     try {
-      await axios.delete(`https://localhost:7226/api/GestaoProdutos/${idProduto}`);
-      const novosDados = dadosDaApi.filter(item => item.idProduto !== idProduto);
-      setDadosDaApi(novosDados);
+      const response = await axios.get('https://localhost:7226/api/GestaoProdutos');
+      setDadosDaApi(response.data);
+    } catch (error) {
+      console.error('Erro ao buscar dados da API:', error);
+    }
+  };
+
+  const handleDeletarProduto = async (idProduto, estadoProduto) => {
+    try {
+      if (estadoProduto !== 'executado') {
+        await axios.delete(`https://localhost:7226/api/GestaoProdutos/${idProduto}`);
+        const novosDados = dadosDaApi.filter(item => item.idProduto !== idProduto);
+        setDadosDaApi(novosDados);
+      } else {
+        console.log('Não é possível excluir um produto em estado "executado".');
+      }
     } catch (error) {
       console.error('Erro ao deletar produto:', error);
     }
   };
+  
 
   const handleEditarProduto = async (idProduto) => {
     try {
@@ -47,14 +68,11 @@ const GestaoProdutos = () => {
 
   const handlePlayBench = async (idProduto) => {
     try {
-      // Faz uma solicitação para obter o produto atual
       const response = await axios.get(`https://localhost:7226/api/GestaoProdutos/${idProduto}`);
       const produto = response.data;
   
-      // Atualiza o preço do produto para 500
       produto.preco = 700;
-  
-      // Faz uma solicitação para atualizar o produto no servidor
+
       await axios.patch(`https://localhost:7226/api/GestaoProdutos/${idProduto}`, produto);
   
       console.log('Preço atualizado com sucesso.');
@@ -131,7 +149,7 @@ const GestaoProdutos = () => {
                         <img src={emailDesativado} alt="Email Desativado" />
                       )}
                       <img src={editar} alt="Editar" onClick={() => handleEditarProduto(item.idProduto)} />
-                      <img src={deletar} alt="Deletar" onClick={() => handleDeletarProduto(item.idProduto)} />
+                      <img src={deletar} alt="Deletar" onClick={() => handleDeletarProduto(item.idProduto, item.estado)} />
                     </td>
                   </tr>
                 ))}

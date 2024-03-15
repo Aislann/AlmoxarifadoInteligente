@@ -10,6 +10,7 @@ const CadastroProdutos = () => {
   const [nome, setNome] = useState('');
   const [estoqueAtual, setEstoqueAtual] = useState('');
   const [estoqueMinimo, setEstoqueMinimo] = useState('');
+  const [cadastroSucesso, setCadastroSucesso] = useState(false);
 
   const handleCadastrarProduto = async () => {
     try {
@@ -20,12 +21,10 @@ const CadastroProdutos = () => {
         estoqueMinimo: estoqueMinimo,
         estado: "play"
       };
-      console.log(codigo,nome,estoqueAtual,estoqueMinimo)
-
-      // Envie uma requisição POST para a API
+      
       await axios.post('https://localhost:7226/api/GestaoProdutos', novoProduto);
+      setCadastroSucesso(true); // Define o estado de sucesso como true após o cadastro
 
-      // Redirecione ou faça qualquer ação necessária após o cadastro
     } catch (error) {
       console.error('Erro ao cadastrar produto:', error);
     }
@@ -53,9 +52,14 @@ const CadastroProdutos = () => {
             <input type="number" className='addProduto' placeholder='Insira a quantidade do estoque mínimo...' onChange={(e) => setEstoqueMinimo(e.target.value)} />
 
             <Link className='btn-cad' to={"/GestaoProdutos"} >
-            <button className='btn-addProd' id='BtnInserirItens' onClick={handleCadastrarProduto}>Cadastrar</button>
+              <button className='btn-addProd' id='BtnInserirItens' onClick={handleCadastrarProduto}>Cadastrar</button>
             </Link>
           </div>
+          {cadastroSucesso && (
+            <div className="sucesso">
+              <p>Produto cadastrado com sucesso!</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
