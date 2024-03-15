@@ -18,6 +18,10 @@ const Logs = () => {
     fetchData();
   }, []); // Executa uma vez no carregamento do componente
 
+
+  const [search, SetSearch] = useState ('');
+
+
   return (
     <div>
       <NavbarLinks/>
@@ -26,7 +30,14 @@ const Logs = () => {
           <span>BenchMarking Logs</span>
         </div>
         <div className='conteudoLogs'>
-          <table class="tabelaLogs" id="tabelaItens">
+          <input 
+          type="text" 
+          className='searchLog' 
+          placeholder='Pesquisar Log...' 
+          onChange={e => SetSearch(e.target.value)}
+          value={search}
+          />  
+          <table className="tabelaLogs" id="tabelaItens">
             <thead>
               <tr>
                 <th>Código Robô</th>
@@ -38,16 +49,29 @@ const Logs = () => {
               </tr>
             </thead>
             <tbody>
-              {logs.map((log) => (
-                <tr key={log.iDlOg}>
-                  <td>{log.codigoRobo}</td>
-                  <td>{log.usuarioRobo}</td>
-                  <td>{log.dateLog}</td>
-                  <td>{log.etapa}</td>
-                  <td>{log.informacaoLog}</td>
-                  <td>{log.idProdutoAPI}</td>
-                </tr>
-              ))}
+              {
+                search.length > 0
+                ? logs.filter((log) => log.informacaoLog.toLowerCase().includes(search.toLowerCase())).map((log) => (
+                    <tr key={log.iDlOg}>
+                      <td>{log.codigoRobo}</td>
+                      <td>{log.usuarioRobo}</td>
+                      <td>{log.dateLog}</td>
+                      <td>{log.etapa}</td>
+                      <td>{log.informacaoLog}</td>
+                      <td>{log.idProdutoAPI}</td>
+                    </tr>
+                  ))
+                : logs.map((log) => (
+                    <tr key={log.iDlOg}>
+                      <td>{log.codigoRobo}</td>
+                      <td>{log.usuarioRobo}</td>
+                      <td>{log.dateLog}</td>
+                      <td>{log.etapa}</td>
+                      <td>{log.informacaoLog}</td>
+                      <td>{log.idProdutoAPI}</td>
+                    </tr>
+                  ))
+              }
             </tbody>
           </table>
         </div>
