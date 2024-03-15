@@ -17,7 +17,7 @@ const NavbarLinks = () => {
           <Link to={"/GestaoProdutos"} className='link'>
             <span>Produtos</span>
           </Link>
-          <a href="https://aislann.github.io/Almoxarifado_Full/" className='link'>
+          <a href="https://aislann.github.io/FrontRepositorio/" className='link'>
             <span>Requisição</span>
           </a>
           <Link to={"/Logs"} className='link'>
