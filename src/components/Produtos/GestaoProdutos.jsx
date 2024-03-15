@@ -15,6 +15,8 @@ import Modal from 'react-modal';
 const GestaoProdutos = () => {
   const [dadosDaApi, setDadosDaApi] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalEmail, setModalEmail] = useState(false);
+  const [email, setEmail] = useState('');
   const [produtoParaEditar, setProdutoParaEditar] = useState(null);
 
   useEffect(() => {
@@ -30,6 +32,7 @@ const GestaoProdutos = () => {
 
     return () => clearInterval(interval);
   }, []);
+
 
   const fetchData = async () => {
     try {
@@ -65,6 +68,13 @@ const GestaoProdutos = () => {
     }
   };
 
+  const handleEmail = async () => {
+    try {
+      setModalEmail(true);
+    } catch (error) {
+      console.error('Erro ao obter informações do produto:', error);
+    }
+  };
 
   const handlePlayBench = async (idProduto) => {
     try {
@@ -104,6 +114,38 @@ const GestaoProdutos = () => {
     setProdutoParaEditar(null);
     setModalIsOpen(false);
   };
+  const closeEmail = () => {
+    setModalEmail(false);
+  };
+
+  useEffect(() => {
+    fetch('https://localhost:7226/api/GestaoProdutos')
+      .then(response => response.json())
+      .then(data => setDadosDaApi(data))
+      .catch(error => console.error('Erro ao buscar dados da API:', error));
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+    const interval = setInterval(fetchData, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    axios.get('https://localhost:7226/api/Email')
+      .then(response => {
+        if (response.data.length > 0) {
+          setEmail(response.data[0].emailUsuario);
+        }
+      })
+      .catch(error => {
+        console.error('Erro ao obter email:', error);
+      });
+  }, []);
+
+
+  
 
   return (
     <div>
@@ -143,7 +185,7 @@ const GestaoProdutos = () => {
                         <img src={PlayBench} alt="PlayBench" onClick={() => handlePlayBench(item.idProduto)} />
                       )}
                       {item.estado === 'executado' && (
-                        <img src={enviarEmail} alt="Enviar Email" onClick={() => handleEnviarEmail(item.idProduto)} />
+                        <img src={enviarEmail} alt="Enviar Email" onClick={() => handleEmail()} />
                       )}
                       {item.estado !== 'executado' && (
                         <img src={emailDesativado} alt="Email Desativado" />
@@ -191,6 +233,23 @@ const GestaoProdutos = () => {
                   </div>
                 </div>
               )}
+            </Modal>
+            <Modal
+              isOpen={modalEmail}
+              contentLabel="Editar Produto"
+              className="modal"
+            >
+                <div>
+                  <h2>Email Cadastrado</h2>
+                  <p>{email}</p>
+                  <Link to={"/Configuracoes"} className='link'>
+                  <span>Atualizar Informações</span>
+                  </Link> 
+                  <div>
+                    <button className='salvar' onClick={() => handleEnviarEmail(item.idProduto)}>Enviar Email</button>
+                    <button className='fechar' onClick={closeEmail}>Fechar</button>
+                  </div>
+                </div>
             </Modal>
           </div>
         </div>

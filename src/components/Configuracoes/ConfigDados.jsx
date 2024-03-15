@@ -1,17 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios'; 
 import './ConfigDadosStyle.css';
 import NavbarLinks from '../Navbar/NavbarLinks';
 
 const ConfigDados = () => {
-    const [emailVisivel, setEmailVisivel] = useState(true);
     const [whatsappVisivel, setWhatsappVisivel] = useState(true);
+    const [email, setEmail] = useState('');
+    const [editMode, setEditMode] = useState(false);
 
-    const TrocarParaInput = (tipo) => {
-        if (tipo === 'email') {
-            setEmailVisivel(false);
-        } else if (tipo === 'whatsapp') {
-            setWhatsappVisivel(false);
+    useEffect(() => {
+        axios.get('https://localhost:7226/api/Email')
+            .then(response => {
+                if (response.data.length > 0) {
+                    setEmail(response.data[0].emailUsuario);
+                    setEditMode(true);
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao obter email:', error);
+            });
+    }, []);
+
+    const handleChangeEmail = (event) => {
+        setEmail(event.target.value);
+    };
+
+    const adicionarEditarEmail = () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("Por favor, insira um email válido.");
+            return;
+        }
+
+        if (editMode) {
+            // Enviar uma solicitação PATCH para atualizar o email com o ID 1
+            axios.patch(`https://localhost:7226/api/Email/1`, { idEmail: 1, emailUsuario: email })
+                .then(() => {
+                    alert("Email atualizado com sucesso!");
+                })
+                .catch(error => {
+                    console.error('Erro ao atualizar email:', error);
+                    alert("Ocorreu um erro ao atualizar o email. Tente novamente mais tarde.");
+                });
+        } else {
+            // Se não estiver no modo de edição, enviar uma solicitação POST para adicionar um novo email
+            axios.post('https://localhost:7226/api/Email', { emailUsuario: email })
+                .then(() => {
+                    alert("Email adicionado com sucesso!");
+                })
+                .catch(error => {
+                    console.error('Erro ao adicionar email:', error);
+                    alert("Ocorreu um erro ao adicionar o email. Tente novamente mais tarde.");
+                });
         }
     };
 
@@ -24,14 +65,17 @@ const ConfigDados = () => {
                 </div>
                 <div className='conteudoConfig'>
                     <div className='campoEmail'>
-                        {emailVisivel ? (
-                            <button id='trocar' onClick={() => TrocarParaInput('email')}>Adicionar Email</button>
+                        {editMode ? (
+                            <>
+                                <input type="email" placeholder="Digite seu e-mail..." value={email} onChange={handleChangeEmail} />
+                                <button className='add' onClick={adicionarEditarEmail}>Salvar</button>
+                            </>
                         ) : (
-                            <input type="email" placeholder="Digite seu e-mail..." />
+                            <>
+                                <input type="email" placeholder="Digite seu e-mail..." value={email} onChange={handleChangeEmail} />
+                                <button className='add' onClick={adicionarEditarEmail}>Adicionar</button>
+                            </>
                         )}
-
-                        <button className='add' >Adicionar</button>
-
                     </div>
                     <div className='campoZap'>
                         {whatsappVisivel ? (
