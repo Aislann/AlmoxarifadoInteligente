@@ -4,6 +4,7 @@ import './Gestao.css';
 import deletar from '/src/assets/deletar.svg';
 import editar from '/src/assets/editar.svg';
 import enviarEmail from '/src/assets/enviarEmail.svg';
+import emailDesativado from '/src/assets/emailDesativado.svg';
 import BenchMarking from '/src/assets/BenchMarking.svg';
 import BenchMarkingFail from '/src/assets/BenchMarkingFail.svg';
 import PlayBench from '/src/assets/PlayBench.svg';
@@ -47,7 +48,7 @@ const GestaoProdutos = () => {
   const handlePlayBench = async (idProduto) => {
     try {
       // Faz uma solicitação para obter o produto atual
-      const response = await axios.get(`https://localhost:7226/api/GestaoProdutos/VerificarNovoProduto/${idProduto}`);
+      const response = await axios.get(`https://localhost:7226/api/GestaoProdutos/${idProduto}`);
       const produto = response.data;
   
       // Atualiza o preço do produto para 500
@@ -69,6 +70,15 @@ const GestaoProdutos = () => {
       window.location.reload();
     } catch (error) {
       console.error('Erro ao salvar alterações:', error);
+    }
+  };
+
+  const handleEnviarEmail = async (idProduto) => {
+    try {
+      await axios.get(`https://localhost:7226/api/GestaoProdutos/VerificarNovoProduto/${idProduto}`);
+      console.log('Email enviado com sucesso.');
+    } catch (error) {
+      console.error('Erro ao enviar email:', error);
     }
   };
 
@@ -109,12 +119,17 @@ const GestaoProdutos = () => {
                     <td>{item.estoqueAtual}</td>
                     <td>{item.estoqueMinimo}</td>
                     <td className="icones">
-                      {item.estado === 'executado' ? (
+                    {item.estado === 'executado' ? (
                         <img src={BenchMarking} alt="BenchMarking" />
                       ) : (
                         <img src={PlayBench} alt="PlayBench" onClick={() => handlePlayBench(item.idProduto)} />
                       )}
-                      <img src={enviarEmail} alt="Enviar Email" />
+                      {item.estado === 'executado' && (
+                        <img src={enviarEmail} alt="Enviar Email" onClick={() => handleEnviarEmail(item.idProduto)} />
+                      )}
+                      {item.estado !== 'executado' && (
+                        <img src={emailDesativado} alt="Email Desativado" />
+                      )}
                       <img src={editar} alt="Editar" onClick={() => handleEditarProduto(item.idProduto)} />
                       <img src={deletar} alt="Deletar" onClick={() => handleDeletarProduto(item.idProduto)} />
                     </td>

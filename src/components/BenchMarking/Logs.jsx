@@ -45,7 +45,7 @@ const Logs = () => {
                   <td>{log.dateLog}</td>
                   <td>{log.etapa}</td>
                   <td>{log.informacaoLog}</td>
-                  <td>{log.idProdutoApi}</td>
+                  <td>{log.idProdutoAPI}</td>
                 </tr>
               ))}
             </tbody>
