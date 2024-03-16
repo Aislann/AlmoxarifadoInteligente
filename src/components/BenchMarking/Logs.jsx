@@ -7,7 +7,7 @@ const Logs = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://localhost:7226/api/Logrobo');
+        const response = await fetch('https://localhost:8002/api/Logrobo');
         const data = await response.json();
         setLogs(data);
       } catch (error) {
@@ -16,7 +16,7 @@ const Logs = () => {
     };
 
     fetchData();
-  }, []); // Executa uma vez no carregamento do componente
+  }, []); 
 
   return (
     <div>

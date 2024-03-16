@@ -5,8 +5,6 @@ import './css/Responsividade.css';
 import NavbarLinks from '../Navbar/NavbarLinks';
 import Add from '/public/img/add.svg'
 import Branco from '/public/img/branco.svg'
-// import './js/dados'
-// import './js/main'
 
 
 const Requisicao = () => {

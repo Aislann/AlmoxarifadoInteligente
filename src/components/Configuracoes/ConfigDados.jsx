@@ -10,7 +10,7 @@ const ConfigDados = () => {
     const [editMode, setEditMode] = useState(false);
 
     useEffect(() => {
-        axios.get('https://localhost:7226/api/Email')
+        axios.get('https://localhost:8002/api/Email')
             .then(response => {
                 if (response.data.length > 0) {
                     setEmail(response.data[0].emailUsuario);
@@ -34,8 +34,7 @@ const ConfigDados = () => {
         }
 
         if (editMode) {
-            // Enviar uma solicitação PATCH para atualizar o email com o ID 1
-            axios.patch(`https://localhost:7226/api/Email/1`, { idEmail: 1, emailUsuario: email })
+            axios.patch(`https://localhost:8002/api/Email/1`, { idEmail: 1, emailUsuario: email })
                 .then(() => {
                     alert("Email atualizado com sucesso!");
                 })
@@ -44,8 +43,7 @@ const ConfigDados = () => {
                     alert("Ocorreu um erro ao atualizar o email. Tente novamente mais tarde.");
                 });
         } else {
-            // Se não estiver no modo de edição, enviar uma solicitação POST para adicionar um novo email
-            axios.post('https://localhost:7226/api/Email', { emailUsuario: email })
+            axios.post('https://localhost:8002/api/Email', { emailUsuario: email })
                 .then(() => {
                     alert("Email adicionado com sucesso!");
                 })
@@ -68,7 +66,7 @@ const ConfigDados = () => {
                         {editMode ? (
                             <>
                                 <input type="email" placeholder="Digite seu e-mail..." value={email} onChange={handleChangeEmail} />
-                                <button className='add' onClick={adicionarEditarEmail}>Salvar</button>
+                                <button className='add' onClick={adicionarEditarEmail}>Adicionar</button>
                             </>
                         ) : (
                             <>

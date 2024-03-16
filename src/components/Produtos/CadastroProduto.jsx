@@ -11,9 +11,15 @@ const CadastroProdutos = () => {
   const [estoqueAtual, setEstoqueAtual] = useState('');
   const [estoqueMinimo, setEstoqueMinimo] = useState('');
   const [cadastroSucesso, setCadastroSucesso] = useState(false);
+  const [erroEstoque, setErroEstoque] = useState('');
 
   const handleCadastrarProduto = async () => {
     try {
+      if (parseInt(estoqueAtual) < parseInt(estoqueMinimo)) {
+        setErroEstoque('O estoque atual não pode ser menor que o estoque mínimo.');
+        return;
+      }
+
       const novoProduto = {
         idProduto: codigo,
         descricao: nome,
@@ -22,8 +28,9 @@ const CadastroProdutos = () => {
         estado: "play"
       };
       
-      await axios.post('https://localhost:7226/api/GestaoProdutos', novoProduto);
-      setCadastroSucesso(true); // Define o estado de sucesso como true após o cadastro
+      await axios.post('https://localhost:8002/api/GestaoProdutos', novoProduto);
+      setCadastroSucesso(true); 
+      setErroEstoque('');
 
     } catch (error) {
       console.error('Erro ao cadastrar produto:', error);
@@ -50,6 +57,10 @@ const CadastroProdutos = () => {
 
             <label htmlFor="">Estoque Mínimo: </label>
             <input type="number" className='addProduto' placeholder='Insira a quantidade do estoque mínimo...' onChange={(e) => setEstoqueMinimo(e.target.value)} />
+
+            {erroEstoque && (
+              <p className="erro">{erroEstoque}</p>
+            )}
 
             <Link className='btn-cad' to={"/GestaoProdutos"} >
               <button className='btn-addProd' id='BtnInserirItens' onClick={handleCadastrarProduto}>Cadastrar</button>
