@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css'
+import './Navbar.css';
+import hamburgerMenu from '/src/assets/hamburgerMenu.svg';
 
 const NavbarLinks = () => {
-    const [menuAberto, setMenuAberto] = useState(false);
-  
-    const toggleMenu = () => {
-      setMenuAberto(!menuAberto);
-    };
+  const [menuAberto, setMenuAberto] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuAberto(!menuAberto);
+  };
 
   return (
-    <div>
     <div className='selection'>
       <nav className={`navbar ${menuAberto ? 'menu-aberto' : ''}`}>
         <div className='links'>
@@ -25,10 +25,10 @@ const NavbarLinks = () => {
           </Link>
           <Link to={"/Configuracoes"} className='link'>
             <span>Configurações</span>
-          </Link>          
+          </Link>
         </div>
+        <img src={hamburgerMenu} alt="Menu Hamburguer" className='menu-hamburguer' onClick={toggleMenu} />
       </nav>
-      </div>
     </div>
   );
 };

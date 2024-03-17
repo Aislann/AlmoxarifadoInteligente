@@ -12,6 +12,19 @@
 
 }
 
+.searchLog{
+    display: flex;
+    align-self: center;
+    margin-bottom: 20px;
+    width: 40%;
+    border: 1px solid #adadad;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    outline-color: #90ee90;
+}
+
+
 .tabelaLogs{
     align-self: center;
     border: 1px solid #CDCDCD;

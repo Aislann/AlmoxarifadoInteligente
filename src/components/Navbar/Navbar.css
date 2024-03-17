@@ -1,52 +1,84 @@
 .link{
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .links {
-    display: flex;
-    align-items: center;
-    gap: 100px; 
-  }
+  display: flex;
+  align-items: center;
+  gap: 100px; 
+}
 
 .selection{
-  border-radius: 0.2rem;
-  background-color: #03BCF6;
+border-radius: 0.2rem;
+background-color: #03BCF6;
 }
 
 .selection span{
-    padding: auto;
-  }
-  
+  padding: auto;
+}
+
 .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
 }
 
 .navbar .links a{
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 0 0 0 2px transparent;
-  padding: 15px;
-  text-align: center;
-  border-radius: 1rem;
+transition: transform 0.3s ease-in-out;
+box-shadow: 0 0 0 2px transparent;
+padding: 15px;
+text-align: center;
+border-radius: 1rem;
 }
 
 .navbar .links a span{
-  color: white;
-  font-weight: bold;
+color: white;
+font-weight: bold;
 }
 
 .navbar .links a:hover {
-  transform: scale(1.1); 
-  box-shadow: 0 0 10px 2px #3498db;
+transform: scale(1.1); 
+box-shadow: 0 0 10px 2px #3498db;
+}
+
+.menu-hamburguer {
+  display: flex;
+  position: fixed;
+  right: 0;
+  opacity: 0;
 }
 
 @media only screen and (max-width: 768px) {
-  .links {
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-  }
+.links {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  border-radius: 0.5rem;
+  background-color: #03BCF6;
 }
-  
+
+  .menu-aberto{
+    margin-top: 1.2rem;
+  }
+
+  .menu-hamburguer{
+    opacity: 1;
+    margin-top: 2.5rem;
+  }
+
+  .menu-aberto .links {
+    display: flex;
+    margin-top: -4rem;
+  }
+
+  .navbar{
+    margin-bottom: 2.5rem;
+    }
+}
